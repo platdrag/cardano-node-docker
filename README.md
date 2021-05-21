@@ -60,7 +60,7 @@ docker run -it \
     -e CARDANO_NETWORK="main" \
     -e PROMETHEUS_PORT="12798" \
     -v $PWD/config/:/config/ \
-    arradev/cardano-node:latest --start
+    pddev/cardano-node:latest --start
 ```
 
 
@@ -84,7 +84,7 @@ docker run -it --rm \
     -e POOL_MARGIN="0.05" \
     -e METADATA_URL="<URL of metadata.json>" \
     -v $PWD/config/:/config/ \
-    arradev/cardano-node:latest --create --staking
+    pddev/cardano-node:latest --create --staking
 ```
 
 
@@ -106,7 +106,7 @@ docker run -it --rm \
     -e CARDANO_NETWORK="main" \
     -e PROMETHEUS_PORT="12798" \
     -v $PWD/config/:/config/ \
-    arradev/cardano-node:latest --start --staking
+    pddev/cardano-node:latest --start --staking
 ```
 
 
@@ -278,7 +278,7 @@ Use these example scripts to see how the nodes can be started.
 
 
 ## Docker hub
-Image can be found [here](https://hub.docker.com/repository/docker/arradev/cardano-node).
+Image can be found [here](https://hub.docker.com/repository/docker/pddev/cardano-node).
 
 
 ## Building locally
