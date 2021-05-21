@@ -84,7 +84,7 @@ RUN echo "Building tags/$VERSION..." \
     && cp -p dist-newstyle/build/x86_64-linux/ghc-8.10.2/cardano-cli-${VERSION}/x/cardano-cli/build/cardano-cli/cardano-cli /root/.local/bin/ \
     && rm -rf /root/.cabal/packages \
     && rm -rf /usr/local/lib/ghc-8.6.5/ \
-    && rm -rf /cardano-node/dist-newstyle/ \
+    && rm -rf /cardano-node/dist-newstyle/ \ 
     && rm -rf /root/.cabal/store/ghc-8.6.5
 
 # Install cncli
@@ -103,6 +103,7 @@ RUN pip3 install pytz
 ## cardano-node, EKG, Prometheus
 EXPOSE 3000 12788 12798
 
+
 # ENV variables
 ENV NODE_PORT="3000" \
     NODE_NAME="node1" \
@@ -110,6 +111,7 @@ ENV NODE_PORT="3000" \
     NODE_RELAY="False" \
     CARDANO_NETWORK="main" \
     EKG_PORT="12788" \
+    PROMETHEUS_HOST="127.0.0.1" \
     PROMETHEUS_PORT="12798" \
     RESOLVE_HOSTNAMES="False" \
     REPLACE_EXISTING_CONFIG="False" \
@@ -131,6 +133,7 @@ RUN mkdir -p /config/
 VOLUME /config/
 
 # Add scripts
+#RUN echo "source /scripts/init_node_vars" >> /root/.bashrc
 ADD scripts/ /scripts/
 RUN chmod -R +x /scripts/
 
